@@ -4,6 +4,7 @@ import {
   EventEmitter,
   input,
   Input,
+  output,
   Output,
 } from '@angular/core';
 
@@ -15,17 +16,18 @@ import {
 export class UserComponent {
   // @Input({required: true}) avatar!: string;
   // @Input({required: true}) name!: string;
-  id = input.required<string>();
-  avatar = input.required<string>();
-  name = input.required<string>();
-  imagePath = computed(() => '../../assets/users/' + this.avatar());
-  @Output() select = new EventEmitter();
-
+  // @Output() select = new EventEmitter();
   // get imagePath() {
   //   return '../../assets/users/' + this.avatar;
   // }
 
+  id = input.required<string>();
+  avatar = input.required<string>();
+  name = input.required<string>();
+  imagePath = computed(() => '../../assets/users/' + this.avatar());
+  select = output<string>();
+
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.id());
   }
 }
