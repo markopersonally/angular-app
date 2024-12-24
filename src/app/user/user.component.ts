@@ -16,18 +16,29 @@ import {
 export class UserComponent {
   // @Input({required: true}) avatar!: string;
   // @Input({required: true}) name!: string;
-  // @Output() select = new EventEmitter<string>();
-  // get imagePath() {
-  //   return '../../assets/users/' + this.avatar;
-  // }
 
-  id = input.required<string>();
-  avatar = input.required<string>();
-  name = input.required<string>();
-  imagePath = computed(() => '../../assets/users/' + this.avatar());
-  select = output<string>();
+  @Input({ required: true }) user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  };
+  @Output() select = new EventEmitter<string>();
+
+  get imagePath() {
+    return '../../assets/users/' + this.user.avatar;
+  }
 
   onSelectUser() {
-    this.select.emit(this.id());
+    this.select.emit(this.user.id);
   }
+
+  // id = input.required<string>();
+  // avatar = input.required<string>();
+  // name = input.required<string>();
+  // imagePath = computed(() => '../../assets/users/' + this.avatar());
+  // select = output<string>();
+
+  // onSelectUser() {
+  //   this.select.emit(this.id());
+  // }
 }
