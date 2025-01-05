@@ -9,11 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    UserComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, UserComponent],
   bootstrap: [AppComponent],
   imports: [BrowserModule, FormsModule, SharedModule, TasksModule],
 })
