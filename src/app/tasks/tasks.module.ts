@@ -5,5 +5,6 @@ import { NewTaskComponent } from './new-task/new-task.component';
 
 @NgModule({
   declarations: [TasksComponent, TaskComponent, NewTaskComponent],
+  exports: [TasksComponent]
 })
 export class TasksModule {}
